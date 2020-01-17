@@ -1,0 +1,28 @@
+body{
+    background-color: floralwhite;
+}
+ul {
+ list-style-type: none;
+ margin: 0;
+ padding: 0;
+ overflow: hidden;
+ background-color:goldenrod;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: whitesmoke;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+li a:hover {
+  background-color: gold;
+}
+
