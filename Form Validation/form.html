@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Validating input form</title>
+  <style type="text/css">
+  body {font-family: Arial, Helvetica, sans-serif;}
+  * {box-sizing: border-box;}
+
+
+  input[type=text], select, textarea {
+  width: 20%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  resize: vertical;
+}
+
+ input[type=tel] {
+   width: 20%;
+   padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  resize: vertical;
+ }
+
+
+ input[type=email] {
+   width: 20%;
+   padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  resize: vertical;
+ }
+
+
+ input[type=number] {
+   width: 20%;
+   padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  resize: vertical;
+ }
+
+ input[type=date] {
+  width: 20%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  resize: vertical;
+ }
+
+  button {
+  background-color: blue;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 35px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+	<form action="" method="post" id="f1">
+  		Username:<br> <input type="text" id="user" pattern="[a-zA-z]{1-15}"  name="username" required> <br> <br>
+  		DOB:<br> <input type="date" id="dob" name="DOB" required> <br> <br>
+  		Address: <br> <br>
+  		<textarea rows="10" cols="50" id="t1">
+  		</textarea> <br> <br>
+    City: <br> <br>
+    <select required>
+      <option value="">none</option>
+      <option value="Chennai">Chennai</option>
+      <option value="Chengalpet">Chengalpet</option>
+      <option value="Kanchipuram">Kanchipuram</option>
+      <option value="Thiruvallur">Thiruvallur</option>
+      <option value="Ambathur">Ambathur</option>
+      <option value="Tambaram">Tambaram</option>
+      <option value="Porur">Porur</option>
+    </select> <br> <br>
+    Phone: <br> <br>
+    <input type="tel" name="phone" pattern="[+]{1}[9]{1}[1]{1}[6-9]{1}[0-9]{9}" required> <br> <br>
+    Email: <br> <br>
+    <input type="email" name="email" id="email" required><br> <br>
+    Rating: <br> <br>
+    <input type="number" name="number" pattern="[1-5]{1}" required><br> <br>
+  	<button onclick="func()">Submit</button> 
+    <button onclick="reset()" style="margin-left: 200px;">Reset</button>
+	</form>
+  </div>
+<script type="text/javascript">
+	function func(){
+	var d = new Date();
+  var today = new Date();
+  var date = today.getFullYear();
+	var d = document.getElementById("dob").value;
+	var str = d.toString();
+	var dob = str.split("-");
+	var curr =  dob[0];
+  var age = parseInt(curr);
+  if((date-age)<18){
+    window.alert("You are a minor!");
+    }
+    var mail = document.getElementById("email").value;
+    if((mail.match(/[a-zA-z][a-zA-z0-9._-]+@[a-zA-z]+.com/))==null)
+    {
+      window.alert("Enter valid email ID");
+    }
+    var user = document.getElementById("user").value;
+  }
+  function reset(){
+    document.getElementById("f1").reset();
+    document.getElementById("t1").reset();
+}
+</script>
+</body>
+</html>
